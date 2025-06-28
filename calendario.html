@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario periodos MARS 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- TÍTULO CAMBIADO -->
+    <h1>Calendario periodos MARS 2025</h1>
+    <div id="calendar-container">
+        <!-- Los calendarios se generarán aquí con JavaScript -->
+    </div>
+
+    <!-- Modal para el bloc de notas -->
+    <div id="note-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Nota para el día: <span id="modal-date-display"></span></h2>
+            <textarea id="note-textarea" placeholder="Escribe tu nota aquí..."></textarea>
+            <div class="modal-buttons">
+                <button id="save-note-btn">Guardar</button>
+                <button id="delete-note-btn">Borrar Nota</button>
+                <button id="close-modal-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

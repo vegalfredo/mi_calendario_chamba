@@ -1,0 +1,178 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #003366;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+}
+
+#calendar-container {
+    display: flex;
+    flex-direction: column; /* Organiza los trimestres verticalmente */
+    gap: 25px;
+    align-items: center;
+}
+
+.quarter-container {
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo para el contenedor del Q */
+}
+
+.quarter-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #003366;
+    text-align: left;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-left: 10px;
+}
+
+.periods-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start; /* Alinea los calendarios a la izquierda */
+}
+
+.period-calendar {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    min-width: 280px;
+}
+
+.period-id {
+    background-color: #004a99;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* --- AQUÍ ESTÁ LA MAGIA --- */
+    writing-mode: vertical-rl;  /* Pone el texto en vertical */
+    transform: rotate(180deg);    /* Lo gira 180 grados */
+}
+
+.calendar-content {
+    flex-grow: 1;
+}
+
+.period-header {
+    background-color: #0056b3;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background-color: #ddd;
+}
+
+.day-header, .date-cell {
+    background-color: white;
+    text-align: center;
+    padding: 8px 0;
+}
+
+.day-header {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+.date-cell {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    min-height: 20px;
+}
+
+.date-cell:hover:not(.disabled) {
+    background-color: #e2e6ea;
+}
+
+.date-cell.disabled {
+    color: #aaa;
+    background-color: #f8f9fa;
+    cursor: default;
+}
+
+/* --- NUEVO ESTILO PARA EL DÍA DE HOY (SIN NOTAS) --- */
+.today-special {
+    background-color: #00B050 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+/* --- Colores de estado --- */
+.has-note { background-color: #a8d5a8 !important; } /* Verde */
+.is-due-soon { background-color: #fff3cd !important; } /* Amarillo */
+.is-due-today { background-color: #f8d7da !important; border: 2px solid #d9534f; } /* Rojo */
+
+
+/* --- Estilos del Modal (Bloc de notas) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#note-textarea {
+    width: 95%;
+    height: 150px;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.modal-buttons button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#save-note-btn { background-color: #28a745; color: white; }
+#delete-note-btn { background-color: #dc3545; color: white; }
+#close-modal-btn { background-color: #6c757d; color: white; }
+
+.hidden { display: none !important; }
